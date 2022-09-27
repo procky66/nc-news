@@ -28,7 +28,7 @@ function User() {
         }}
         id="username"
       >
-        {users.map((user, index) => (
+        {users.map((user) => (
           <option key={user.username} value={user.username}>
             {user.username}
           </option>

@@ -1,0 +1,6 @@
+.topic {
+  display: flex;
+  flex-direction: column;
+  font-weight: 400;
+  row-gap: 2em;
+}
