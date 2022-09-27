@@ -1,6 +1,6 @@
-import ArticleList from "../components/ArticleList";
+import ArticleList from "../components/article/ArticleList";
 import Header from "../components/Header";
-import User from "../components/User";
+import User from "../components/user/User";
 
 function Home() {
 	return (
