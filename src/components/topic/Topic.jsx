@@ -1,23 +1,32 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getTopics } from "../../utils/api";
 import { Link } from "react-router-dom";
+import Loading from "../Loading";
 import "./Topic.css";
 
-function Topic({ topic, setTopic, topics, setTopics }) {
-  useEffect(() => {
-    getTopics().then((data) => {
-      setTopics(data.topics);
-    });
-  });
+function Topic({ topics, setTopics }) {
+	const [isLoading, setIsLoading] = useState(false);
 
-  return (
-    <div className="topic">
-      <h2>Topics</h2>
-      {topics.map((topic) => (
-        <Link to={`/articles?topic=${topic.slug}`}>{topic.slug}</Link>
-      ))}
-    </div>
-  );
+	useEffect(() => {
+		setIsLoading(true);
+		getTopics().then(data => {
+			setTopics(data.topics);
+			setIsLoading(false);
+		});
+	}, []);
+
+	return (
+		<Loading isLoading={isLoading}>
+			<div className="topic">
+				<h2>Topics</h2>
+				{topics.map(topic => (
+					<Link to={`/articles?topic=${topic.slug}`} key={topic.slug}>
+						{topic.slug}
+					</Link>
+				))}
+			</div>
+		</Loading>
+	);
 }
 
 export default Topic;

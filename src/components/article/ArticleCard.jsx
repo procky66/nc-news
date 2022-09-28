@@ -1,13 +1,16 @@
-import "./ArticleCard.css"
+import { Link } from "react-router-dom";
+import "./ArticleCard.css";
 
-function ArticleCard({article}) {
+function ArticleCard({ article }) {
 	return (
 		<article className="article_card">
-			<h2>
-				{article.title}
-				<span className="nowrap"> - {article.author}</span>
-			</h2>
-			<p>{article.body}</p>
+			<Link to={`/articles/${article.article_id}`}>
+				<h2>
+					{article.title}
+					<span className="nowrap"> - {article.author}</span>
+				</h2>
+				<p>{article.body}</p>
+			</Link>
 		</article>
 	);
 }

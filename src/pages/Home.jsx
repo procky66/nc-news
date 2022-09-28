@@ -1,9 +1,9 @@
 import ArticleList from "../components/article/ArticleList";
 
-function Home() {
+function Home(setArticle) {
   return (
     <div>
-      <ArticleList />
+      <ArticleList setArticle={setArticle}/>
     </div>
   );
 }

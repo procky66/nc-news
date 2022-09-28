@@ -3,7 +3,7 @@ import { getArticlesForTopic } from "../../utils/api";
 import ArticleCard from "./ArticleCard";
 import Loading from "../Loading";
 
-function ArticleList({ topicSlug }) {
+function ArticleList({ topicSlug , setArticle}) {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -25,7 +25,7 @@ function ArticleList({ topicSlug }) {
         <ul>
           {articles.map((article) => (
             <li key={article.article_id}>
-              <ArticleCard article={article} />
+              <ArticleCard article={article} setArticle={setArticle}/>
             </li>
           ))}
         </ul>
