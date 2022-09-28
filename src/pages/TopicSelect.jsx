@@ -1,15 +1,11 @@
-//import ArticleList from "../components/article/ArticleList";
-import Header from "../components/Header";
-import Nav from "../components/Nav";
+import { useState } from "react";
 import Topic from "../components/topic/Topic";
-import User from "../components/user/User";
 
-function TopicSelect({ topic, setTopic, topics, setTopics }) {
+function TopicSelect() {
+  const [topic, setTopic] = useState({});
+  const [topics, setTopics] = useState([]);
   return (
     <div>
-      <Header />
-      <Nav />
-      <User />
       <Topic
         topic={topic}
         setTopic={setTopic}
