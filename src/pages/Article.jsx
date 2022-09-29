@@ -28,7 +28,7 @@ function ArticleFull() {
 	return (
 		<Loading isLoading={isLoading}>
 			<div>
-				<ArticleFullCard article={article} />
+				<ArticleFullCard article={article} setArticle={setArticle}/>
 			</div>
 		</Loading>
 	);
