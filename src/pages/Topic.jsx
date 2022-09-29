@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { getTopics } from "../../utils/api";
+import { getTopics } from "../utils/api";
 import { Link } from "react-router-dom";
-import Loading from "../Loading";
+import Loading from "../components/Loading";
 import "./Topic.css";
 
-function Topic({ topics, setTopics }) {
+function Topic() {
 	const [isLoading, setIsLoading] = useState(false);
+	const [topics,setTopics] = useState([])
 
 	useEffect(() => {
 		setIsLoading(true);
