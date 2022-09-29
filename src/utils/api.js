@@ -10,7 +10,6 @@ export const getUsers = () => {
 
 export const getArticles = (params) => {
   return usersApi.get("/articles",{params}).then(({ data }) => {
-    console.log(data)
     return data
   });
 };
