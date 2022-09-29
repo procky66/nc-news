@@ -1,10 +1,10 @@
 import Home from "./pages/Home";
-import TopicSelect from "./pages/TopicSelect";
 import { Routes, Route } from "react-router-dom";
-import Article from "./pages/Article";
 import Header from "./components/Header";
 import Nav from "./components/Nav";
 import User from "./components/user/User";
+import Article from "./pages/Article";
+import Topic from "./pages/Topic";
 
 function App() {
 	return (
@@ -14,8 +14,9 @@ function App() {
 			<User />
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/topic" element={<TopicSelect />} />
-				<Route path="/articles" element={<Article />} />
+				<Route path="/articles" element={<Home />} />
+				<Route path="/topics" element={<Topic />} />
+				<Route path="/articles/:article_id" element={<Article />} />
 			</Routes>
 		</div>
 	);
