@@ -26,9 +26,3 @@ export const getArticlesForTopic = (topic) => {
 export const getTopics = () => {
   return usersApi.get("/topics").then(({ data }) => data);
 };
-
-export const getComments = (article_id) => {
-  return usersApi
-    .get(`/articles/${article_id}/comments`)
-    .then(({ data }) => data);
-};

@@ -5,15 +5,22 @@ import Loading from "../Loading";
 
 function ArticleFullCard({ article_id, article, setArticle }) {
 	const [isLoading, setIsLoading] = useState(false);
+	const [isError, setIsError] = useState(null);
 
 	useEffect(() => {
 		setIsLoading(true);
-		getArticleById(article_id).then(data => {
-			setArticle(data.article);
-			setIsLoading(false);
-		});
-	}, [article_id, setArticle]);
-
+		getArticleById(article_id)
+			.then(data => {
+				setArticle(data.article);
+				setIsLoading(false);
+			})
+			.catch(err => {
+				setIsError({ err });
+			});
+	}, [article_id]);
+	if (isError) {
+		return <p>404: No Article found</p>;
+	}
 	return (
 		<article className="article_card">
 			<Loading isLoading={isLoading}>
@@ -22,7 +29,8 @@ function ArticleFullCard({ article_id, article, setArticle }) {
 					<p>
 						By {article.author} on {getDateString(article.created_at)}
 					</p>
-					<p>Votes: {article.votes}</p><p>Comments: {article.comment_count}</p>
+					<p>Votes: {article.votes}</p>
+					<p>Comments: {article.comment_count}</p>
 				</span>
 				<p>{article.body}</p>
 			</Loading>
