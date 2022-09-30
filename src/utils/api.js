@@ -18,9 +18,15 @@ export const getArticleById = article_id => {
 	return usersApi.get(`/articles/${article_id}`).then(({ data }) => data);
 };
 
-export const patchArticle = (article_id,params) => {
+export const patchArticle = (article_id, params) => {
 	return usersApi
 		.patch(`/articles/${article_id}`, params)
+		.then(({ data }) => data);
+};
+
+export const getComments = article_id => {
+	return usersApi
+		.get(`articles/${article_id}/comments`)
 		.then(({ data }) => data);
 };
 
