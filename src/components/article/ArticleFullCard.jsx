@@ -6,7 +6,7 @@ import AddComment from "../comment/AddComment";
 import Loading from "../Loading";
 import { useParams } from "react-router-dom";
 
-function ArticleFullCard({ article, setArticle , user}) {
+function ArticleFullCard({ article, setArticle }) {
 	const [comments, setComments] = useState([]);
 	const { article_id } = useParams();
 	const [isLoading, setIsLoading] = useState(false);
@@ -51,7 +51,7 @@ function ArticleFullCard({ article, setArticle , user}) {
 					</p>
 				</span>
 				<p>{article.body}</p>
-					<AddComment isAddingComment={isAddingComment} setIsAddingComment={setIsAddingComment} setComments={setComments} article={article} user={user}/>
+					<AddComment isAddingComment={isAddingComment} setIsAddingComment={setIsAddingComment} setComments={setComments} article={article}/>
 				<Comments comments={comments} />
 			</Loading>
 		</article>

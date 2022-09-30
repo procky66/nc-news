@@ -1,23 +1,19 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getUsers } from "../../utils/api";
+import { UserContext } from "../contexts/User";
 import Loading from "../Loading";
 
 import "./User.css";
 
-function User({user,setUser}) {
-
+function User() {
+	const [user, setUser] = useContext(UserContext);
 	const [users, setUsers] = useState([]);
 	const [isLoading, setIsLoading] = useState(false);
-
-	const hardCodedDefaultUser = "tickle122";
 
 	useEffect(() => {
 		setIsLoading(true);
 		getUsers().then(data => {
 			setUsers(data.users);
-			setUser(
-				data.users.filter(user => user.username === hardCodedDefaultUser)[0]
-			);
 		});
 		setIsLoading(false);
 	}, []);
@@ -27,7 +23,6 @@ function User({user,setUser}) {
 			<Loading isLoading={isLoading}>
 				<label htmlFor="username">Username:</label>
 				<select
-					defaultValue={hardCodedDefaultUser}
 					onChange={e => {
 						setUser(users.filter(user => user.username === e.target.value)[0]);
 					}}

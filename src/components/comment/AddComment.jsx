@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { postComment } from "../../utils/api";
+import { UserContext } from "../contexts/User";
 import "./AddComment.css";
 
 function AddComment({
@@ -7,9 +8,9 @@ function AddComment({
 	setIsAddingComment,
 	setComments,
 	article,
-	user,
 }) {
 	const [comment, setComment] = useState("");
+    const [user]=useContext(UserContext)
 
 	const handleSubmit = e => {
 		e.preventDefault();
@@ -35,6 +36,7 @@ function AddComment({
 			<form onSubmit={e => handleSubmit(e)}>
 				<textarea
 					required
+                    key="comment"
 					id="comment"
 					rows="4"
 					cols="50"
