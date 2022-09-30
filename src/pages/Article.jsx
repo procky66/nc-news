@@ -4,7 +4,7 @@ import ArticleFullCard from "../components/article/ArticleFullCard.jsx";
 import { getArticleById } from "../utils/api.js";
 import Loading from "../components/Loading";
 
-function ArticleFull() {
+function Article({user}) {
 	const [article, setArticle] = useState({});
 	const { article_id } = useParams();
 
@@ -34,4 +34,4 @@ function ArticleFull() {
 	);
 }
 
-export default ArticleFull;
+export default Article;

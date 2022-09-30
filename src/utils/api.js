@@ -30,6 +30,12 @@ export const getComments = article_id => {
 		.then(({ data }) => data);
 };
 
+export const postComment = (article_id, params) => {
+	return usersApi
+		.post(`/articles/${article_id}/comments`, params)
+		.then(({ data }) => data);
+};
+
 export const getTopics = () => {
 	return usersApi.get("/topics").then(({ data }) => data);
 };
