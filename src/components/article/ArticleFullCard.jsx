@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { patchArticle } from "../../utils/api";
 import { getDateString } from "../../utils/date";
 
@@ -9,7 +8,6 @@ function ArticleFullCard({ article, setArticle }) {
 			return { ...currentArticle, votes: currentArticle.votes + 1 };
 		});
 		patchArticle(article.article_id, { inc_votes: 1 })
-			.then(data => {})
 			.catch(err => {
 				setArticle(currentArticle => {
 					return { ...currentArticle, votes: currentArticle.votes - 1 };
