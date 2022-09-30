@@ -37,6 +37,7 @@ function AddComment({
 				<textarea
 					required
                     key="comment"
+                    value={comment}
 					id="comment"
 					rows="4"
 					cols="50"
