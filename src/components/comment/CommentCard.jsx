@@ -6,9 +6,9 @@ function CommentCard({ comment }) {
 		<div className="comment_card">
 			<p>{comment.body}</p>
 			<span>
-				<p>
-					By {comment.author} on {getDateString(comment.created_at)}<p>Votes: {comment.votes}</p>
-				</p>
+				<div>
+					By {comment.author} on {getDateString(comment.created_at)} Votes: {comment.votes}
+				</div>
 			</span>
 		</div>
 	);

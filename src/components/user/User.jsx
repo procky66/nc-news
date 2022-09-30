@@ -4,12 +4,12 @@ import Loading from "../Loading";
 
 import "./User.css";
 
-function User() {
-	const hardCodedDefaultUser = "tickle122";
+function User({user,setUser}) {
 
 	const [users, setUsers] = useState([]);
-	const [user, setUser] = useState({});
 	const [isLoading, setIsLoading] = useState(false);
+
+	const hardCodedDefaultUser = "tickle122";
 
 	useEffect(() => {
 		setIsLoading(true);
